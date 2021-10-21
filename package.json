@@ -1,7 +1,8 @@
 {
   "name": "elhm",
-  "version": "0.0.1",
-  "description": "Easy LocalHost Manager",
+  "version": "0.1.0",
+  "displayName": "Easy LocalHost Manager",
+  "description": "Elhm is an application that allows you to easily configure and manage all your local projects.",
   "main": "src/main.js",
   "author": "Anthony Bellancourt",
   "license": "MIT",
