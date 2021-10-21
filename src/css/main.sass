@@ -18,3 +18,37 @@ body
 
 @import includes/left_menu
 @import includes/projects
+
+.bg
+	&-dark
+		background-color: $c-dark
+	&-light
+		background-color: $c-light
+	&-primary
+		background-color: $c-primary
+	&-secondary
+		background-color: $c-secondary
+
+.form-group
+	label
+		display: block
+		margin-bottom: 10px
+	input
+		width: 100%
+		background-color: $c-light
+		color: $c-dark
+		padding: 5px
+		border: none
+		box-shadow: none
+		outline: none
+.btn
+	background-color: $c-primary
+	color: $c-dark
+	padding: 10px
+	display: flex
+	justify-content: center
+	align-items: center
+	text-decoration: none !important
+	border: none
+	box-shadow: none
+	outline: none

@@ -1,15 +1,10 @@
--
-    APP_NAME = "Elhm LocalHost Manager"
-    LINK_ACTIVE = "projects"
+extends src/includes/template.pug
 
-doctype
-html(lang="en")
-head
-    title= APP_NAME
-    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons")
-    link(rel="stylesheet" href="src/css/main.css")
-body
-    include src/includes/left-menu
+block content
     #projects
-        h3#projects__path mon/path
+        #projects__top
+            h3#projects__path /projects
+            #projects__new-project-btn
+                a(href='projects-new.html').btn Create new project
+                    span.material-icons add
         #projects__list

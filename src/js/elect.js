@@ -20,6 +20,7 @@ class Main {
             height: 720,
             autoHideMenuBar: true,
             center: true,
+            backgroundColor: '#08090a',
             minWidth: 720,
             minHeight: 480,
             fullscreenable: true,

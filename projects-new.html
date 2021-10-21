@@ -22,11 +22,13 @@
             <div class="text">Settings</div></a></li>
     </ul>
   </div>
-  <div id="projects">
-    <div id="projects__top">
-      <h3 id="projects__path">/projects</h3>
-      <div id="projects__new-project-btn"><a class="btn" href="projects-new.html">Create new project<span class="material-icons">add</span></a></div>
-    </div>
-    <div id="projects__list"></div>
+  <div class="bg-secondary" id="create-project">
+    <form id="form-create-project">
+      <div class="form-group">
+        <label for="project-name">Project Name</label>
+        <input type="text" id="project-name">
+      </div><br>
+      <button class="btn" type="submit">Create Project</button>
+    </form>
   </div>
 </body>

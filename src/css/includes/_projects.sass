@@ -1,6 +1,11 @@
 @import variables
 
 #projects
+    &__top
+        display: flex
+        justify-content: space-between
+        align-items: center
+
     &__path
         color: $c-light !important
     &__list
@@ -23,3 +28,11 @@
             justify-content: center
             align-items: center
             text-align: center
+
+    &__new-project-btn
+        display: flex
+        justify-content: flex-end
+        padding: 10px 0
+
+#create-project
+    padding: 20px

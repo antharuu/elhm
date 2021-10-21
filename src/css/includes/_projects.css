@@ -1,3 +1,8 @@
+#projects__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 #projects__path {
   color: #daf0ee !important;
 }
@@ -29,4 +34,13 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+#projects__new-project-btn {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 0;
+}
+
+#create-project {
+  padding: 20px;
 }

@@ -5,25 +5,52 @@ const { ['log']: _cl } = console
 
 let showedFiles: string[] = [];
 
+let saved_settings: SettingsType = {}
+
 window.addEventListener("DOMContentLoaded", () => {
+    const projectsPath: Element = document.querySelector("#projects__path") ?? null;
+    const projectsList: Element = document.querySelector("#projects__list") ?? null;
+    const form: HTMLFormElement = document.querySelector("#form-create-project") ?? null;
+
     Settings.get().then((settings) => {
+        saved_settings = settings
 
+        // ------------------------------------------------------ Show projects & path
+        if (projectsPath && projectsList) {
+            projectsPath.textContent = settings.base_dir
 
-        const projectsPath: Element = document.querySelector("#projects__path");
-        const projectsList: Element = document.querySelector("#projects__list");
+            checkFiles(settings, projectsList);
 
-        projectsPath.textContent = settings.base_dir
+            if (settings.check_interval !== false) {
+                setInterval(() => checkFiles(settings, projectsList), settings.check_interval * 1000)
+            }
 
-        checkFiles(settings, projectsList)
-
-        _cl(settings)
-
-        if (settings.check_interval !== false) {
-            setInterval(() => checkFiles(settings, projectsList), settings.check_interval * 1000)
         }
-    })
+    });
+
+    // ------------------------------------------------------ Create project
+    if (form) {
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const inputName: HTMLInputElement = document.querySelector("#project-name") ?? null;
+            if (saved_settings !== {} && inputName) {
+                const projectName: string = inputName.value ?? "";
+                if (projectName !== "") {
+                    const projectPath: string = saved_settings.base_dir + "/" + projectName;
+                    fs.mkdir(projectPath, { recursive: true }, (err: NodeJS.ErrnoException) => {
+                        if (err) {
+                            _cl(err)
+                        } else {
+                            window.location.href = "index.html";
+                        }
+                    });
+                }
+            }
+        })
+    }
 });
 
+// ------------------------- Check if files changed
 function checkFiles(settings: SettingsType, projectsList: Element) {
     _cl("STATE: CHECK")
     fs.readdir(settings.base_dir, (_err: NodeJS.ErrnoException, files: string[]) => {
@@ -49,6 +76,7 @@ function checkFiles(settings: SettingsType, projectsList: Element) {
     });
 }
 
+// ------------------------- Print files
 function printFiles(files: string[], projectsList: Element): void {
     files.forEach((file: string) => {
         let project: HTMLElement = document.createElement("div")
