@@ -9,15 +9,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const default_settings = {
+    base_dir: "/",
+    check_interval: 5
+};
 class Settings {
     constructor(file_path) {
         this.file_path = file_path;
     }
     get() {
         return __awaiter(this, void 0, void 0, function* () {
-            const response = yield fetch(this.file_path);
-            const json = yield response.json();
-            return yield json;
+            return fetch(this.file_path).then((response) => {
+                return response.json().then((file_settings) => {
+                    return Object.assign({ default_settings }, file_settings);
+                });
+            });
         });
     }
 }

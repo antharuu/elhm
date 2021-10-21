@@ -1,5 +1,6 @@
-type SettingsType = {
-    base_dir: string
+const default_settings: SettingsType = {
+    base_dir: "/",
+    check_interval: 5
 }
 
 class Settings {
@@ -8,9 +9,11 @@ class Settings {
     }
     file_path: string
     async get(): Promise<SettingsType> {
-        const response = await fetch(this.file_path);
-        const json = await response.json();
-        return await json;
+        return fetch(this.file_path).then((response) => {
+            return response.json().then((file_settings: SettingsType) => {
+                return { default_settings, ...file_settings }
+            });
+        })
     }
 }
 
