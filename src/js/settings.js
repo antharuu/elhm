@@ -17,7 +17,7 @@ class Settings {
         return __awaiter(this, void 0, void 0, function* () {
             const response = yield fetch(this.file_path);
             const file_settings = yield response.json();
-            let current_settings = Object.assign({ base_dir: "/", check_interval: 5 }, file_settings);
+            const current_settings = Object.assign({ base_dir: "/", check_interval: 5 }, file_settings);
             if (current_settings.base_dir.substr(-1) !== "/")
                 current_settings.base_dir += "/";
             if (current_settings.check_interval < 1)

@@ -1,13 +1,13 @@
 class Settings {
     constructor(file_path: string) {
-        this.file_path = file_path
+        this.file_path = file_path;
     }
-    file_path: string
+    file_path: string;
     async get(): Promise<SettingsType> {
         const response = await fetch(this.file_path);
         const file_settings: SettingsType = await response.json();
 
-        let current_settings: SettingsType = {
+        const current_settings: SettingsType = {
             // Default settings
             base_dir: "/",
             check_interval: 5
@@ -24,4 +24,4 @@ class Settings {
     }
 }
 
-export default new Settings("src/settings.json")
+export default new Settings("src/settings.json");

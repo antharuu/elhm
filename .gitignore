@@ -1,4 +1,5 @@
 /out/Buisiness
 /node_modules/
+.idea
 .vscode
 /out/

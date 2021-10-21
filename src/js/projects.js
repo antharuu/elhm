@@ -4,14 +4,14 @@ const settings_js_1 = require("./settings.js");
 const fs = require("fs");
 const { ['log']: _cl } = console;
 let showedFiles = [];
-let saved_settings = {};
+let savedSettings = {};
 window.addEventListener("DOMContentLoaded", () => {
     var _a, _b, _c;
     const projectsPath = (_a = document.querySelector("#projects__path")) !== null && _a !== void 0 ? _a : null;
     const projectsList = (_b = document.querySelector("#projects__list")) !== null && _b !== void 0 ? _b : null;
     const form = (_c = document.querySelector("#form-create-project")) !== null && _c !== void 0 ? _c : null;
     settings_js_1.default.get().then((settings) => {
-        saved_settings = settings;
+        savedSettings = settings;
         if (projectsPath && projectsList) {
             projectsPath.textContent = settings.base_dir;
             checkFiles(settings, projectsList);
@@ -25,10 +25,10 @@ window.addEventListener("DOMContentLoaded", () => {
             var _a, _b;
             e.preventDefault();
             const inputName = (_a = document.querySelector("#project-name")) !== null && _a !== void 0 ? _a : null;
-            if (saved_settings !== {} && inputName) {
+            if (savedSettings !== {} && inputName) {
                 const projectName = (_b = inputName.value) !== null && _b !== void 0 ? _b : "";
                 if (projectName !== "") {
-                    const projectPath = saved_settings.base_dir + "/" + projectName;
+                    const projectPath = savedSettings.base_dir + "/" + projectName;
                     fs.mkdir(projectPath, { recursive: true }, (err) => {
                         if (err) {
                             _cl(err);
@@ -64,9 +64,10 @@ function checkFiles(settings, projectsList) {
 }
 function printFiles(files, projectsList) {
     files.forEach((file) => {
-        let project = document.createElement("div");
-        let projectTitle = document.createTextNode(file);
+        const project = document.createElement("a");
+        const projectTitle = document.createTextNode(file);
         project.classList.add("project_folder");
+        project.setAttribute("href", "#");
         project.appendChild(projectTitle);
         projectsList.appendChild(project);
     });
