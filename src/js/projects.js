@@ -10,18 +10,29 @@ window.addEventListener("DOMContentLoaded", () => {
         const projectsList = document.querySelector("#projects__list");
         projectsPath.textContent = settings.base_dir;
         checkFiles(settings, projectsList);
+        _cl(settings);
         if (settings.check_interval !== false) {
             setInterval(() => checkFiles(settings, projectsList), settings.check_interval * 1000);
         }
     });
 });
 function checkFiles(settings, projectsList) {
-    _cl("CHECK");
-    projectsList.innerHTML = "";
+    _cl("STATE: CHECK");
     fs.readdir(settings.base_dir, (_err, files) => {
-        if (files !== showedFiles) {
+        if (checkChanges()) {
+            _cl("STATE: UPDATE");
+            projectsList.innerHTML = "";
             printFiles(files, projectsList);
             showedFiles = files;
+        }
+        function checkChanges() {
+            let r = false;
+            files.forEach((file) => {
+                if (showedFiles.indexOf(file) === -1) {
+                    r = true;
+                }
+            });
+            return r;
         }
     });
 }
