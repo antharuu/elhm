@@ -7,7 +7,7 @@ Elhm is an application that allows you to easily configure and manage all your l
 ### Project folder manager
 
 - [x] List your projects in configured local folder
-- [ ] Create new project 
+- [x] Create new project 
 - [ ] Delete project
 - [ ] Rename project
 - [ ] Detect project type *(Symphony, Laravel, VueJS, etc..)*
