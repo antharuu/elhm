@@ -1,0 +1,51 @@
+@import variables
+
+#left-menu
+	position: fixed
+	width: 100px
+	left: 0
+	top: 0
+	bottom: 0
+	background-color: $c-secondary
+
+	ul
+		padding: 0
+		margin: 0
+		display: flex
+		width: 100%
+		flex-direction: column
+		justify-content: start
+
+		li
+			text-align: center
+
+			a
+				border-right: 4px solid transparent
+				display: block
+				padding: 16px 0
+				color: $c-dark
+				text-decoration: none
+				transition: color 250ms ease-in-out
+
+				.text
+					font-size: 12px
+					text-transform: uppercase
+
+				&:hover
+					color: $c-primary
+
+			&.active
+
+				a
+					border-color: $c-primary
+					color: $c-primary
+
+		&:hover
+
+			li.active
+
+				a
+					color: $c-dark
+
+					&:hover
+						color: $c-primary !important

@@ -1,10 +1,18 @@
 {
-    "compilerOptions": {
-        "module": "commonjs",
-        "target": "es5",
-        "sourceMap": true
-    },
-    "exclude": [
-        "node_modules"
-    ]
+  "compilerOptions": {
+    "target": "es2015",
+    "module": "commonjs", 
+    "moduleResolution": "node",
+    "sourceMap": false,
+    "allowUnreachableCode": false,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "pretty": true,
+    "removeComments": true
+  },
+  "exclude": [
+    "node_modules"
+  ]
 }

@@ -2,7 +2,28 @@
 <html lang="en"></html>
 <head>
   <title>Elhm LocalHost Manager</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons">
+  <link rel="stylesheet" href="src/css/main.css">
 </head>
 <body>
-  <h1>Bonjour le monde </h1>
+  <div id="left-menu">
+    <ul>
+        <li class="active"><a href="#"> 
+            <div class="material-icons">inventory</div>
+            <div class="text">Projects</div></a></li>
+        <li><a href="#"> 
+            <div class="material-icons">music_note</div>
+            <div class="text">Composer</div></a></li>
+        <li><a href="#"> 
+            <div class="material-icons">segment</div>
+            <div class="text">NPM</div></a></li>
+        <li><a href="#"> 
+            <div class="material-icons">settings</div>
+            <div class="text">Settings</div></a></li>
+    </ul>
+  </div>
+  <div id="projects">
+    <h3 id="projects__path">mon/path</h3>
+    <div id="projects__list"></div>
+  </div>
 </body>

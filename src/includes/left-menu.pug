@@ -1,0 +1,24 @@
+mixin left-link(name, icon, link="#", active = false)
+    if active
+        li.active
+            a(href=link) 
+                .material-icons=icon
+                .text= name
+    else
+        li
+            a(href=link) 
+                .material-icons=icon
+                .text= name 
+
+-
+    links = {
+        projects: { name: "Projects", icon: "inventory", link: "#" },
+        composer: { name: "Composer", icon: "music_note", link: "#" },
+        npm: { name: "NPM", icon: "segment", link: "#" },
+        settings: { name: "Settings", icon: "settings", link: "#" },
+    }
+
+#left-menu
+    ul
+        for link, key in links
+            +left-link(link.name, link.icon, link.link, LINK_ACTIVE == key)

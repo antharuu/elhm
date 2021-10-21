@@ -1,0 +1,25 @@
+@import variables
+
+#projects
+    &__path
+        color: $c-light !important
+    &__list
+        display: grid
+        grid:
+            template-columns: repeat(2, 1fr)
+            gap: 20px
+            auto-rows: minmax(100px, auto)
+        @media screen and (min-width: 562px)
+            grid-template-columns: repeat(3, 1fr)
+        @media screen and (min-width: 632px)
+            grid-template-columns: repeat(4, 1fr)
+        @media screen and (min-width: 980px)
+            grid-template-columns: repeat(6, 1fr)
+
+        .project_folder
+            min-height: 120px
+            background-color: $c-secondary
+            display: flex
+            justify-content: center
+            align-items: center
+            text-align: center
