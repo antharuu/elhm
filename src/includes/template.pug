@@ -1,6 +1,7 @@
 -
     APP_NAME = "Elhm LocalHost Manager"
     LINK_ACTIVE = "projects"
+    FOLDER_PATERN = "([a-zA-Z0-9 _-]+)"
 
 doctype
 html(lang="en")
@@ -9,5 +10,7 @@ head
     link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons")
     link(rel="stylesheet" href="src/css/main.css")
 body
+    #page(style="display: none;")
+        block page
     include left-menu
     block content

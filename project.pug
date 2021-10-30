@@ -1,0 +1,9 @@
+extends src/includes/template.pug
+
+block page
+    | project
+
+block content
+    #project
+        form#project__name
+            input(value="My project" pattern=FOLDER_PATERN required)#project__name__input

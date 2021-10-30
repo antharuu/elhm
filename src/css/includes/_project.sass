@@ -1,0 +1,25 @@
+@import variables
+
+#project
+  &__name
+    display: flex
+    justify-content: stretch
+
+    &__input
+      font-size: 32px
+      display: block
+      border: 2px solid transparent
+      background-color: transparent
+      color: $c-light
+      padding: 5px
+      margin-bottom: 10px
+      transition: 250ms border-color ease-in-out
+      box-shadow: none
+      outline: none
+
+      &:hover, &:active, &:focus
+        border-color: $c-primary
+
+      &.edited
+        font-style: italic
+

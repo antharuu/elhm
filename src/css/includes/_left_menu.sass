@@ -1,51 +1,51 @@
 @import variables
 
 #left-menu
-	position: fixed
-	width: 100px
-	left: 0
-	top: 0
-	bottom: 0
-	background-color: $c-secondary
+  position: fixed
+  width: 100px
+  left: 0
+  top: 0
+  bottom: 0
+  background-color: $c-secondary
 
-	ul
-		padding: 0
-		margin: 0
-		display: flex
-		width: 100%
-		flex-direction: column
-		justify-content: start
+  ul
+    padding: 0
+    margin: 0
+    display: flex
+    width: 100%
+    flex-direction: column
+    justify-content: start
 
-		li
-			text-align: center
+    li
+      text-align: center
 
-			a
-				border-right: 4px solid transparent
-				display: block
-				padding: 16px 0
-				color: $c-dark
-				text-decoration: none
-				transition: color 250ms ease-in-out
+      a
+        border-right: 4px solid transparent
+        display: block
+        padding: 16px 0
+        color: $c-dark
+        text-decoration: none
+        transition: color 250ms ease-in-out
 
-				.text
-					font-size: 12px
-					text-transform: uppercase
+        .text
+          font-size: 12px
+          text-transform: uppercase
 
-				&:hover
-					color: $c-primary
+        &:hover
+          color: $c-primary
 
-			&.active
+      &.active
 
-				a
-					border-color: $c-primary
-					color: $c-primary
+        a
+          border-color: $c-primary
+          color: $c-primary
 
-		&:hover
+    &:hover
 
-			li.active
+      li.active
 
-				a
-					color: $c-dark
+        a
+          color: $c-dark
 
-					&:hover
-						color: $c-primary !important
+          &:hover
+            color: $c-primary !important

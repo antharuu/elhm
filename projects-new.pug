@@ -1,10 +1,13 @@
 extends src/includes/template.pug
 
+block page
+    | project-new
+
 block content
     #create-project.bg-secondary
         form()#form-create-project
             .form-group
                 label(for="project-name") Project Name
-                input(type="text" id="project-name")
+                input(type="text" pattern=FOLDER_PATERN required)#project-name
             br
             button.btn(type="submit") Create Project
